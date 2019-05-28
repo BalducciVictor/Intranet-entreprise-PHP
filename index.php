@@ -31,11 +31,27 @@
           La boucle se fera dans le Manager de Events et on aura plus qu'a appeler la methode ici.
           On fera la même chose pour les commentaires de chaques events ensuite.
     -->
-  <ul>
+  
   
   </ul>
 
-  
+  <form action="index.php" method="POST">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="nom">
+    </div>
+
+    <br>
+
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" value="">  
+    </div> 
+
+    <br>
+
+    <input type="submit" value="Valider">
+  </form>
 
 
 
