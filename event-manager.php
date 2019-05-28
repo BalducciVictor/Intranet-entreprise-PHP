@@ -13,9 +13,9 @@ class EventManager
     $q = $this->_db->prepare('INSERT INTO events(id, title, texte, imageUrl) VALUES(:id, :title, :texte, :imageUrl)');
 
     $q->bindValue(':id', $events->id());
-    $q->bindValue('title', $events->title(), PDO::PARAM_INT);
-    $q->bindValue('text', $events->text(), PDO::PARAM_INT);
-    $q->bindValue(':imageUrl', $events->imageUrl(), PDO::PARAM_INT);
+    $q->bindValue(':title', $events->title(), PDO::PARAM_STR);
+    $q->bindValue(':text', $events->text(), PDO::PARAM_STR);
+    $q->bindValue(':imageUrl', $events->imageUrl(), PDO::PARAM_STR);
 
     $q->execute();
   }
@@ -54,9 +54,9 @@ class EventManager
     $q = $this->_db->prepare('UPDATE events SET id = :id, title = :title, texte = :texte, imageUrl = :imageUrl WHERE id = :id');
 
     $q->bindValue(':id', $events->id(), PDO::PARAM_INT);
-    $q->bindValue(':title', $events->title(), PDO::PARAM_INT);
-    $q->bindValue(':texte', $events->texte(), PDO::PARAM_INT);
-    $q->bindValue(':imageUrl', $events->imageUrl(), PDO::PARAM_INT);
+    $q->bindValue(':title', $events->title(), PDO::PARAM_STR);
+    $q->bindValue(':texte', $events->texte(), PDO::PARAM_STR);
+    $q->bindValue(':imageUrl', $events->imageUrl(), PDO::PARAM_STR);
 
     $q->execute();
   }
@@ -65,3 +65,4 @@ class EventManager
     $this->_db = $db;
   }
 }
+

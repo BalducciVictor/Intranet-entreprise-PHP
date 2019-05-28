@@ -13,7 +13,7 @@ class ContentManager
     $q = $this->_db->prepare('INSERT INTO commentaires(id, content, userId) VALUES(:id, :content, :userId)');
 
     $q->bindValue(':id', $content->id());
-    $q->bindValue(':content', $content->content(), PDO::PARAM_INT);
+    $q->bindValue(':content', $content->content(), PDO::PARAM_STR);
     $q->bindValue(':userId', $content->userId(), PDO::PARAM_INT);
 
     $q->execute();
@@ -53,7 +53,7 @@ class ContentManager
     $q = $this->_db->prepare('UPDATE commentaires SET id = :id, content = :content, userId = :userId WHERE id = :id');
 
     $q->bindValue(':id', $content->id(), PDO::PARAM_INT);
-    $q->bindValue(':content', $content->content(), PDO::PARAM_INT);
+    $q->bindValue(':content', $content->content(), PDO::PARAM_STR);
     $q->bindValue(':userId', $content->userId(), PDO::PARAM_INT);
 
     $q->execute();
@@ -63,3 +63,7 @@ class ContentManager
     $this->_db = $db;
   }
 }
+
+// $db = new PDO('mysql:host=localhost;dbname=event_time', 'root', 'root');
+// $manager = new ContentManager($db);
+// $manager->add($content);

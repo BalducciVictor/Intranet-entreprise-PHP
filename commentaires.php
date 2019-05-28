@@ -11,7 +11,7 @@ class commentaires {
     // Déclaration du constructeur
 
     public function __construct($data){
-      $this->hydrate($data); // On appelle la fonction d'hydration dès l'instanciation de la classe
+      $this->hydrate($data); // On appelle la fonction d'hydratation dès l'instanciation de la classe
     }
 
     // Hydratation de l'objet
@@ -57,3 +57,11 @@ class commentaires {
       }
     }
 }
+
+?>
+
+<form action="commentaires.php" method="post">
+  <label for="comment">Ajouter un commentaire</label>
+  <input type="text" name="comment" value="">
+  <input type="submit" value="Valider">
+</form>

@@ -14,28 +14,33 @@
 
   include 'header.php';
 
+  try {
+
+    $PDO = new PDO('mysql:host=localhost;dbname=event_time','root','root');
+    $PDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+    $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+
+  } catch(PDOException $e) {
+
+    echo 'Connexion impossible';
+  }
+
   function chargerClasse($class){
     require $class . '.php';
   }
 
   spl_autoload_register('chargerClasse');
 
-
-
-
   ?>
-
 
   <ul class="w-12 p-2 card">
     <!-- Ici on va devoir boucler pour créer la liste des events depuis la base de données
           La boucle se fera dans le Manager de Events et on aura plus qu'a appeler la methode ici.
           On fera la même chose pour les commentaires de chaques events ensuite.
-    -->
-  
-  
+    --> 
   </ul>
 
-  <form action="index.php" method="POST">
+  <form action="index.php" method="post">
     <div>
       <label for="username">Username</label>
       <input type="text" name="nom">
@@ -52,10 +57,6 @@
 
     <input type="submit" value="Valider">
   </form>
-
-
-
-
 
 </body>
 </html>

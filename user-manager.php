@@ -13,8 +13,8 @@ class UsersManager
     $q = $this->_db->prepare('INSERT INTO users(id, nom, prenom) VALUES(:id, :nom, :prenom)');
 
     $q->bindValue(':id', $user->id());
-    $q->bindValue(':nom', $user->nom(), PDO::PARAM_INT);
-    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_INT);
+    $q->bindValue(':nom', $user->nom(), PDO::PARAM_STR);
+    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_STR);
 
     $q->execute();
   }
@@ -53,8 +53,8 @@ class UsersManager
     $q = $this->_db->prepare('UPDATE users SET id = :id, nom = :nom, prenom = :prenom WHERE id = :id');
 
     $q->bindValue(':id', $user->id(), PDO::PARAM_INT);
-    $q->bindValue(':nom', $user->nom(), PDO::PARAM_INT);
-    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_INT);
+    $q->bindValue(':nom', $user->nom(), PDO::PARAM_STR);
+    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_STR);
 
     $q->execute();
   }
