@@ -7,38 +7,30 @@
   <title>EvenTime</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
+<body class="d-flex flex-column align-items-center">
 
 
   <?php
 
   include 'header.php';
 
-  try {
-
-    $PDO = new PDO('mysql:host=localhost;dbname=event_time','root','root');
-    $PDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
-    $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
-
-  } catch(PDOException $e) {
-
-    echo 'Connexion impossible';
-  }
-
+  
   function chargerClasse($class){
     require $class . '.php';
   }
-
+  
   spl_autoload_register('chargerClasse');
+  
+
+  $db = new PDO('mysql:host=localhost;dbname=test_eventime','root','');
+
+  $manager = new EventsManager($db);
+
+  $events = $manager->getList();
 
   ?>
 
-  <ul class="w-12 p-2 card">
-    <!-- Ici on va devoir boucler pour créer la liste des events depuis la base de données
-          La boucle se fera dans le Manager de Events et on aura plus qu'a appeler la methode ici.
-          On fera la même chose pour les commentaires de chaques events ensuite.
-    --> 
-  </ul>
+
 
   <form action="index.php" method="post">
     <div>
@@ -57,6 +49,21 @@
 
     <input type="submit" value="Valider">
   </form>
+
+  <!-- Tous les events listé depuis la BDD -->
+
+  <?php
+      foreach ($events as $key => $value) {
+    ?>
+      <div class="shadow w-75 bg-light border-0 m-3 overflow-hidden d-flex flex-column justify-content-center align-items-center ">
+        <h2 class="text-center m-5"><?php echo $value->title() ?></h2>
+        <p class="text-center "><?php echo $value->texte() ?></p>
+        <img class="w-50" src="<?php echo $value->imageUrl() ?>">
+      </div>
+
+    <?php
+      }
+    ?>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-class events {
+class Events {
 
     // Déclaration des attributs de la classe
 

@@ -1,5 +1,5 @@
 <?php
-class EventManager
+class EventsManager
 {
   private $_db; // Instance de PDO
 
@@ -8,7 +8,7 @@ class EventManager
     $this->setDb($db);
   }
 
-  public function add(Event $events)
+  public function add(Events $events)
   {
     $q = $this->_db->prepare('INSERT INTO events(id, title, texte, imageUrl) VALUES(:id, :title, :texte, :imageUrl)');
 
@@ -20,10 +20,16 @@ class EventManager
     $q->execute();
   }
 
-  public function delete(Event $events)
+  // All methods for the CRUD
+
+  // This one is for delete
+
+  public function delete(Events $events)
   {
     $this->_db->exec('DELETE FROM events WHERE id = '.$events->id());
   }
+
+  // This one is for getting a single data 
 
   public function get($id)
   {
@@ -32,8 +38,10 @@ class EventManager
     $q = $this->_db->query('SELECT id, title, texte, imageUrl FROM events WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-    return new Event($donnees);
+    return new Events($donnees);
   }
+
+  // This one is for gettinf all data events
 
   public function getList()
   {
@@ -43,13 +51,15 @@ class EventManager
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
-      $events[] = new Event($donnees);
+      $events[] = new Events($donnees);
     }
 
     return $events;
   }
 
-  public function update(Event $events)
+  // This one is for Updating a sinlge data, selected by his ID
+
+  public function update(Events $events)
   {
     $q = $this->_db->prepare('UPDATE events SET id = :id, title = :title, texte = :texte, imageUrl = :imageUrl WHERE id = :id');
 
@@ -60,6 +70,9 @@ class EventManager
 
     $q->execute();
   }
+
+  // Set the PDO instance to the _db variable
+
   public function setDb(PDO $db)
   {
     $this->_db = $db;
