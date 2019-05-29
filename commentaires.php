@@ -1,12 +1,13 @@
 <?php
 
-class commentaires {
+class Commentaires {
 
     // Déclaration des attributs de la classe
 
     private $_id;
     private $_content;
     private $_userId;
+    private $_eventId;
 
     // Déclaration du constructeur
 
@@ -36,6 +37,9 @@ class commentaires {
     public function userId(){
       return $this->_userId;
     }
+    public function eventId(){
+      return $this->_eventId;
+    }
 
     // Déclaration des setters
 
@@ -56,12 +60,12 @@ class commentaires {
         $this->_userId = $userId;
       }
     }
+    public function setEventId($eventId){
+      $eventId = (int) $eventId;
+      if ($eventId > 0) {
+        $this->_eventId = $eventId;
+      }
+    }
 }
 
 ?>
-
-<form action="commentaires.php" method="post">
-  <label for="comment">Ajouter un commentaire</label>
-  <input type="text" name="comment" value="">
-  <input type="submit" value="Valider">
-</form>
