@@ -6,7 +6,7 @@ function chargerClasse($class){
 
 spl_autoload_register('chargerClasse');
 
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','root');
+$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 $manager = new CommentairesManager($db);
 
 $eventId = $_GET['event'];

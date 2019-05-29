@@ -1,3 +1,7 @@
+
+
+<!-- header('Content-type: text/html; charset=utf-8'); -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,58 +20,27 @@
   include 'header.php';
 
   
-  function chargerClasse($class){
-    require $class . '.php';
-  }
-  
-  spl_autoload_register('chargerClasse');
-  
 
-  $db = new PDO('mysql:host=localhost;dbname=event_time','root','root');
 
-  $manager = new EventsManager($db);
-
-  $events = $manager->getList();
 
   ?>
 
 
 
-  <form action="index.php" method="post">
+  <form action="registerUser.php" method="post">
     <div>
       <label for="username">Username</label>
-      <input type="text" name="nom">
+      <input type="text" name="userName">
     </div>
-
-    <br>
-
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" value="">  
-    </div> 
 
     <br>
 
     <input type="submit" value="Valider">
   </form>
 
-  <!-- Tous les events listé depuis la BDD -->
-
-  <?php
-      foreach ($events as $key => $value) {
-    ?>
-      
-      <div class="event-container w-75 bg-light m-3 d-flex flex-column justify-content-center align-items-center shadow">
-        <h2 class="text-center m-5"><?php echo $value->title() ?></h2>
-        <p class="text-center "><?php echo $value->texte() ?></p>
-        <img class="w-50" src="<?php echo $value->imageUrl() ?>">
-        <a href="comment.php?event=<?php echo $value->id()?>">Commentaires</a>
-      </div>
 
 
-    <?php
-      }
-    ?>
+
 
 </body>
 </html>

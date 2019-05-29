@@ -1,3 +1,4 @@
+
 <?php
 class UsersManager
 {
@@ -10,11 +11,10 @@ class UsersManager
 
   public function add(Users $user)
   {
-    $q = $this->_db->prepare('INSERT INTO users(id, nom, prenom) VALUES(:id, :nom, :prenom)');
+    $q = $this->_db->prepare('INSERT INTO users(id, nom) VALUES(:id, :nom)');
 
     $q->bindValue(':id', $user->id());
     $q->bindValue(':nom', $user->nom(), PDO::PARAM_STR);
-    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_STR);
 
     $q->execute();
   }
@@ -28,7 +28,7 @@ class UsersManager
   {
     $id = (int) $id;
 
-    $q = $this->_db->query('SELECT id, nom, prenom FROM users WHERE id = '.$id);
+    $q = $this->_db->query('SELECT id, nom FROM users WHERE id = '.$id);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
     return new Users($donnees);
@@ -38,7 +38,7 @@ class UsersManager
   {
     $user = [];
 
-    $q = $this->_db->query('SELECT id, nom, prenom FROM users ORDER BY nom');
+    $q = $this->_db->query('SELECT id, nom FROM users ORDER BY id');
 
     while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
     {
@@ -50,11 +50,10 @@ class UsersManager
 
   public function update(Users $user)
   {
-    $q = $this->_db->prepare('UPDATE users SET id = :id, nom = :nom, prenom = :prenom WHERE id = :id');
+    $q = $this->_db->prepare('UPDATE users SET id = :id, nom = :nom WHERE id = :id');
 
     $q->bindValue(':id', $user->id(), PDO::PARAM_INT);
     $q->bindValue(':nom', $user->nom(), PDO::PARAM_STR);
-    $q->bindValue(':prenom', $user->prenom(), PDO::PARAM_STR);
 
     $q->execute();
   }
@@ -63,3 +62,4 @@ class UsersManager
     $this->_db = $db;
   }
 }
+
