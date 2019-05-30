@@ -2,6 +2,7 @@
 
 require_once 'assets/config/bootstrap.php';
 
+
 $manager = new CommentairesManager($db);
 
 $eventId = $_GET['event'];
