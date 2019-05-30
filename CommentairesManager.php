@@ -72,6 +72,12 @@ class CommentairesManager
     $q->execute();
   }
 
+  public function getUserName($userId){
+    $q = $this->_db->query('SELECT nom FROM users INNER JOIN commentaires ON users.id = commentaires.userId WHERE commentaires.userId ='.$userId);
+    $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    return $donnees['nom'];
+  }
+
   public function setDb(PDO $db)
   {
     $this->_db = $db;

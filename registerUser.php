@@ -19,6 +19,6 @@ $allUsers = $manager->getList();
 
 foreach ($allUsers as $key => $value) {
   if ($value->nom() == $userName) {
-    header('Location: eventsView.php?user='.$userName);
+    header('Location: eventsView.php?user='.$value->id());
   }
 }

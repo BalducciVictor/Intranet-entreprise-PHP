@@ -76,8 +76,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nom`, `prenom`) VALUES
-(1, 'Diarit ', 'Salihaj'),
-(2, 'Victor ', 'Balducci'),
+(1, 'Diarit', 'Salihaj'),
+(2, 'Victor', 'Balducci'),
 (3, 'Eden', 'Bergel');
 
 --

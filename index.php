@@ -27,15 +27,15 @@
 
 
 
-  <form action="registerUser.php" method="post">
-    <div>
+  <form action="registerUser.php" method="post" class="conect-form card p-5">
+    <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" name="userName">
+      <input type="text" name="userName" class="form-control">
     </div>
 
     <br>
 
-    <input type="submit" value="Valider">
+    <input type="submit" value="Valider" class="btn btn-primary mb-2">
   </form>
 
 

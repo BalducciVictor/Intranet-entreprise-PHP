@@ -12,6 +12,9 @@
 
 
 <?php
+
+  include 'header.php';
+
   function chargerClasse($class){
     require $class . '.php';
   }
@@ -25,7 +28,7 @@
 
   $events = $manager->getList();
 
-  $userName = $_GET['user'];
+  $userId = $_GET['user'];
 
 
 
@@ -40,7 +43,7 @@
         <h2 class="text-center m-5"><?php echo $value->title() ?></h2>
         <p class="text-center "><?php echo $value->texte() ?></p>
         <img class="w-50" src="<?php echo $value->imageUrl() ?>">
-        <a href="comment.php?event=<?php echo $value->id()?>&user=<?php echo $userName?>">Commentaires</a>
+        <a href="comment.php?event=<?php echo $value->id()?>&user=<?php echo $userId?>">Commentaires</a>
       </div>
 
 
