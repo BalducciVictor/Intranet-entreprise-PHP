@@ -10,30 +10,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>EvenTime</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ramabhadra|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styleHome.css">
 </head>
-<body class="d-flex flex-column align-items-center">
+<body class="">
 
+<?php
+include 'header.php';
+?>
 
-  <?php
-
-  include 'header.php';
-
-  ?>
-
-
-
-  <form action="registerUser.php" method="post" class="conect-form card p-5">
-    <div class="form-group">
+<div class="form-connexion">
+  <div class="form-methode">
+    <form action="registerUser.php" method="post">
+    <p class="">Connexion à EvenTime</p>
       <label for="username">Username</label>
-      <input type="text" name="userName" class="form-control">
-    </div>
-
-    <br>
-
-    <input type="submit" value="Valider" class="btn btn-primary mb-2">
-  </form>
-
+      <input type="text" name="userName">
+      <br>
+      <input type="submit" value="Connexion">
+    </form>
+  </div>  
+</div>
 
 </body>
 </html>

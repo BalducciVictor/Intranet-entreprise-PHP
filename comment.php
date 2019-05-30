@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="d-flex flex-column align-items-center">
-
+<body>
 
 <?php 
 
@@ -26,7 +25,7 @@ spl_autoload_register('chargerClasse');
 
 
 
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
+$db = new PDO('mysql:host=localhost:8889;dbname=event_time','root','root');
 $manager = new CommentairesManager($db);
 
 

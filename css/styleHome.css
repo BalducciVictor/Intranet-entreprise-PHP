@@ -1,0 +1,66 @@
+*{
+  box-sizing: border-box;
+}
+
+.conect-form {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border: none;
+  box-shadow: 5px 5px 10px 0px #b8b8b8;
+}
+.event-container {
+  box-shadow: 5px 5px 10px 0px #b8b8b8;
+}
+body{
+  height: 100vh;
+  background: url("../assets/champage.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.form-connexion{
+  position: absolute;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.form-connexion p {
+  font-family: roboto;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.form-methode{
+  height: auto;
+  width: 300px;
+  background-color: rgb(253, 253, 253);
+  padding: 15px;
+  box-shadow: 5px 5px 5px rgb(153, 153, 153);
+}
+form{
+  display: flex;
+  justify-content: center;
+  align-content:center;
+  flex-direction: column;
+}
+form label{
+margin-bottom: 10px;
+font-weight: 300;
+}
+form input[value="Connexion"]{
+  background-color: rgb(77, 77, 77);
+  border-radius: 10px;
+  color: white;
+  padding: 7px;
+}
+form input[value="Connexion"]:hover{
+  background-color: rgb(28, 99, 150);
+}

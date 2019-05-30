@@ -10,7 +10,7 @@ $userName = $_POST['userName'];
 
 echo $userName;
 
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
+$db = new PDO('mysql:host=localhost:8889;dbname=event_time','root','root');
 
 $manager = new UsersManager($db);
 
