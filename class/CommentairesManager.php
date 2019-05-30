@@ -20,9 +20,9 @@ class CommentairesManager
     $q->execute();
   }
 
-  public function delete(Commentaires $content)
+  public function delete($content)
   {
-    $this->_db->exec('DELETE FROM commentaires WHERE id = '.$content->id());
+    $this->_db->exec('DELETE FROM commentaires WHERE id ='.$content);
   }
 
   public function get($id)

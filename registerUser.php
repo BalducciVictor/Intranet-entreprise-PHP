@@ -8,8 +8,6 @@ spl_autoload_register('chargerClasse');
 
 $userName = $_POST['userName'];
 
-echo $userName;
-
 $db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 
 $manager = new UsersManager($db);
@@ -22,3 +20,5 @@ foreach ($allUsers as $key => $value) {
     header('Location: eventsView.php?user='.$value->id());
   }
 }
+
+echo 'Vous n\'êtes pas enregistrés dans la base de donnée, demandez à l\'équipe technique de vous enregistrer'; 
