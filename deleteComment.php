@@ -3,11 +3,7 @@
 
 // Chargement des classes si besoin
 
-function chargerClasse($class){
-  require './class/' .$class . '.php';
-}
-
-spl_autoload_register('chargerClasse');
+require_once 'assets/config/bootstrap.php';
 
 /////
 
@@ -18,7 +14,6 @@ $userId = $_GET['user'];
 
 // Instance PDO + appel au Manager avec cette instance
 
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 $manager = new CommentairesManager($db);
 
 /////

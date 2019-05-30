@@ -26,7 +26,7 @@ USE event_time;
 
 CREATE TABLE `commentaires` (
   `id` int(11) NOT NULL,
-  `content` varchar(255) NOT NULL,
+  `content` TEXT NOT NULL,
   `userId` int(11) NOT NULL,
   `eventId` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -47,7 +47,7 @@ INSERT INTO `commentaires` (`id`, `content`, `userId`) VALUES
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `texte` varchar(255) NOT NULL,
+  `texte` TEXT NOT NULL,
   `imageUrl` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

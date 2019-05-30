@@ -22,14 +22,15 @@ class EventsManager
 
   // All methods for the CRUD
 
-  // This one is for delete
+  /////////
+
 
   public function delete(Events $events)
   {
     $this->_db->exec('DELETE FROM events WHERE id = '.$events->id());
   }
 
-  // This one is for getting a single data 
+  /////////
 
   public function get($id)
   {
@@ -41,7 +42,7 @@ class EventsManager
     return new Events($donnees);
   }
 
-  // This one is for gettinf all data events
+  /////////
 
   public function getList()
   {
@@ -57,7 +58,8 @@ class EventsManager
     return $events;
   }
 
-  // This one is for Updating a sinlge data, selected by his ID
+  /////////
+  
 
   public function update(Events $events)
   {
@@ -71,7 +73,7 @@ class EventsManager
     $q->execute();
   }
 
-  // Set the PDO instance to the _db variable
+  /////////
 
   public function setDb(PDO $db)
   {

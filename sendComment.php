@@ -1,12 +1,7 @@
 <?php
 
-function chargerClasse($class){
-  require 'class/' .$class . '.php';
-}
+require_once 'assets/config/bootstrap.php';
 
-spl_autoload_register('chargerClasse');
-
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 $manager = new CommentairesManager($db);
 
 $eventId = $_GET['event'];

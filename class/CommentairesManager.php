@@ -8,6 +8,9 @@ class CommentairesManager
     $this->setDb($db);
   }
 
+  /////////
+
+
   public function add(Commentaires $content)
   {
     $q = $this->_db->prepare('INSERT INTO commentaires(id, content, userId, eventId) VALUES(:id, :content, :userId, :eventId)');
@@ -20,10 +23,16 @@ class CommentairesManager
     $q->execute();
   }
 
+  /////////
+
+
   public function delete($content)
   {
     $this->_db->exec('DELETE FROM commentaires WHERE id ='.$content);
   }
+
+  /////////
+
 
   public function get($id)
   {
@@ -35,6 +44,9 @@ class CommentairesManager
     return new Commentaires($donnees);
   }
 
+  /////////
+  // This function get all comments, based on the event's id
+
   public function getEventComs($event) {
     $content = [];
     $q = $this->_db->query('SELECT id, content, userId, eventId FROM commentaires WHERE eventId = '.$event);
@@ -45,6 +57,9 @@ class CommentairesManager
 
     return $content;
   }
+
+  /////////
+
 
   public function getList()
   {
@@ -60,6 +75,10 @@ class CommentairesManager
     return $content;
   }
 
+
+  /////////
+
+
   public function update(Commentaires $content)
   {
     $q = $this->_db->prepare('UPDATE commentaires SET id = :id, content = :content, userId = :userId, eventId = :eventId WHERE id = :id');
@@ -72,6 +91,8 @@ class CommentairesManager
     $q->execute();
   }
 
+  /////////
+
   // This function get the user name, based on the comment
 
   public function getUserName($userId){
@@ -79,6 +100,9 @@ class CommentairesManager
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
     return $donnees['nom'];
   }
+
+  /////////
+
 
   public function setDb(PDO $db)
   {

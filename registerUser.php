@@ -1,14 +1,8 @@
 <?php
 
-function chargerClasse($class){
-  require 'class/' .$class . '.php';
-}
-
-spl_autoload_register('chargerClasse');
+require_once 'assets/config/bootstrap.php';
 
 $userName = $_POST['userName'];
-
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 
 $manager = new UsersManager($db);
 

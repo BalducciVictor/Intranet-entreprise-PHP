@@ -9,6 +9,8 @@ class UsersManager
     $this->setDb($db);
   }
 
+  /////////
+
   public function add(Users $user)
   {
     $q = $this->_db->prepare('INSERT INTO users(id, nom) VALUES(:id, :nom)');
@@ -19,10 +21,17 @@ class UsersManager
     $q->execute();
   }
 
+  /////////
+
+
   public function delete(Users $user)
   {
     $this->_db->exec('DELETE FROM users WHERE id = '.$user->id());
   }
+
+
+  /////////
+
 
   public function get($id)
   {
@@ -33,6 +42,8 @@ class UsersManager
 
     return new Users($donnees);
   }
+
+  /////////
 
   public function getList()
   {
@@ -48,6 +59,10 @@ class UsersManager
     return $user;
   }
 
+
+  /////////
+
+
   public function update(Users $user)
   {
     $q = $this->_db->prepare('UPDATE users SET id = :id, nom = :nom WHERE id = :id');
@@ -57,6 +72,11 @@ class UsersManager
 
     $q->execute();
   }
+
+
+  /////////
+
+
   public function setDb(PDO $db)
   {
     $this->_db = $db;

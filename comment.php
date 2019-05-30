@@ -15,24 +15,16 @@
 
 include 'header.php';
 
-function chargerClasse($class){
-  require './class/' .$class . '.php';
-}
-
-spl_autoload_register('chargerClasse');
+require_once 'assets/config/bootstrap.php';
 
 
 // Loop over the comments list, with event parameter
 
-
-
-$db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
 $manager = new CommentairesManager($db);
 
 
-// 
-
 $eventId = $_GET['event'];
+// reverse the array list, to get the last on the top
 $commentaires = array_reverse($manager->getEventComs($eventId));
 
 // Get the name of the actual user
@@ -43,8 +35,9 @@ $userName = $userManager->get($userId)->nom();
 
 ?>
 
+<a href="eventsView.php?user=<?php echo $userId ?>" class="position-absolute text-white flex-0 retour">Retour</a>
 
-<form action="sendComment.php?event=<?php echo htmlspecialchars($eventId)?>&user=<?php echo htmlspecialchars($userId)?>" method="post" class="d-flex flex-column align-items-center card p-2 event-container">
+<form action="sendComment.php?event=<?php echo htmlspecialchars($eventId)?>&user=<?php echo htmlspecialchars($userId)?>" method="post" class="d-flex flex-column align-items-center card p-2 event-container mb-5">
   <label for="comment">Ajouter un commentaire</label>
   <textarea name="comment" cols="50" rows="5"></textarea>
   <input class="mt-2 btn btn-primary" type="submit" value="Envoyer">
@@ -55,8 +48,8 @@ $userName = $userManager->get($userId)->nom();
 foreach ($commentaires as $key => $value) {
   ?>
   <div class="event-container w-50 bg-light m-3 d-flex flex-column justify-content-center align-items-center shadow card border-0">
-    <p class="text-center "><?php echo htmlspecialchars($value->content()) ?></p> 
-    <div class="w-50 d-flex flex-row justify-content-between">
+    <p class="text-center m-2"><?php echo htmlspecialchars($value->content()) ?></p> 
+    <div class="w-50 d-flex flex-row justify-content-between m-2">
       <p class="text-center m-0">Auteur : <?php echo htmlspecialchars($manager->getUserName($value->userId())) ?></p>
       <?php
       if ($userId == $value->userId()) {

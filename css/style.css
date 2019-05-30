@@ -1,4 +1,4 @@
-.event-container {
+/* .event-container {
   box-shadow: 5px 5px 10px 0px #b8b8b8;
 }
 
@@ -9,4 +9,62 @@
   transform: translate(-50%, -50%);
   border: none;
   box-shadow: 5px 5px 10px 0px #b8b8b8;
+} */
+
+
+    
+*{
+  box-sizing: border-box;
+}
+
+.btn-primary{
+  background-color: #222222;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+}
+
+.conect-form {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border: none;
+  box-shadow: 5px 5px 10px 0px #000000;
+}
+.event-container {
+  box-shadow: 5px 5px 10px 0px #000000;
+  background-color: rgba(255, 255, 255, 0.93);
+}
+
+a{
+  color: #222222;
+  transition: 0.1s ease-in-out;
+}
+
+a:hover{
+  color: #949494;
+  text-decoration: none;
+
+}
+
+body{
+  height: 100vh;
+  background: url("../assets/champage.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.retour {
+  left: 2vw;
+  top: 1vh; 
+  font-size: 15px;
+  /* transition: 0.1s ease-in-out; */
+}
+.retour:hover {
+  color: #2500ac;
 }

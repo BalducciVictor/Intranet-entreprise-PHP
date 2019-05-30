@@ -10,20 +10,13 @@
 </head>
 <body class="d-flex flex-column align-items-center">
 
-
+<a href="index.php" class="position-absolute text-white flex-0 retour">Retour</a>
 <?php
 
   include 'header.php';
 
-  function chargerClasse($class){
-    require 'class/' .$class . '.php';
-  }
+  require_once 'assets/config/bootstrap.php';
   
-  spl_autoload_register('chargerClasse');
-  
-
-  $db = new PDO('mysql:host=localhost;dbname=event_time','root','redactedredactedgolousisi94');
-
   $manager = new EventsManager($db);
 
   $events = $manager->getList();
@@ -39,11 +32,11 @@
       foreach ($events as $key => $value) {
     ?>
       
-      <div class="event-container w-75 bg-light m-3 d-flex flex-column justify-content-center align-items-center shadow card border-0">
-        <h2 class="text-center m-5"><?php echo htmlspecialchars($value->title()) ?></h2>
-        <p class="text-center "><?php echo htmlspecialchars($value->texte()) ?></p>
+      <div class="event-container w-75 m-3 d-flex flex-column justify-content-center align-items-center shadow card border-0">
+        <h2 class="text-center m-5"><?php echo utf8_encode($value->title()) ?></h2>
+        <p class="text-center "><?php echo utf8_encode($value->texte())?></p>
         <img class="w-50" src="<?php echo htmlspecialchars($value->imageUrl()) ?>">
-        <a href="comment.php?event=<?php echo htmlspecialchars($value->id())?>&user=<?php echo htmlspecialchars($userId)?>">Commentaires</a>
+        <a class="m-4" href="comment.php?event=<?php echo htmlspecialchars($value->id())?>&user=<?php echo htmlspecialchars($userId)?>">Commentaires</a>
       </div>
 
 

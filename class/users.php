@@ -44,6 +44,3 @@ class Users {
     }
    
 }
-
-$db = new PDO('mysql:host=localhost;dbname=event_time', 'root', 'redactedredactedgolousisi94');
-$manager = new UsersManager($db);

@@ -1,7 +1,3 @@
-
-
-<!-- header('Content-type: text/html; charset=utf-8'); -->
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,8 +16,6 @@
   include 'header.php';
 
   ?>
-
-
 
   <form action="registerUser.php" method="post" class="conect-form card p-5">
     <div class="form-group">
