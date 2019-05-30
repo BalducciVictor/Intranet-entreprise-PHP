@@ -40,10 +40,10 @@
     ?>
       
       <div class="event-container w-75 bg-light m-3 d-flex flex-column justify-content-center align-items-center shadow card border-0">
-        <h2 class="text-center m-5"><?php echo $value->title() ?></h2>
-        <p class="text-center "><?php echo $value->texte() ?></p>
-        <img class="w-50" src="<?php echo $value->imageUrl() ?>">
-        <a href="comment.php?event=<?php echo $value->id()?>&user=<?php echo $userId?>">Commentaires</a>
+        <h2 class="text-center m-5"><?php echo htmlspecialchars($value->title()) ?></h2>
+        <p class="text-center "><?php echo htmlspecialchars($value->texte()) ?></p>
+        <img class="w-50" src="<?php echo htmlspecialchars($value->imageUrl()) ?>">
+        <a href="comment.php?event=<?php echo htmlspecialchars($value->id())?>&user=<?php echo htmlspecialchars($userId)?>">Commentaires</a>
       </div>
 
 

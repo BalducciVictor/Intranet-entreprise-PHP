@@ -33,7 +33,7 @@ $manager = new CommentairesManager($db);
 // 
 
 $eventId = $_GET['event'];
-$commentaires = $manager->getEventComs($eventId);
+$commentaires = array_reverse($manager->getEventComs($eventId));
 
 // Get the name of the actual user
 
@@ -44,10 +44,10 @@ $userName = $userManager->get($userId)->nom();
 ?>
 
 
-<form action="sendComment.php?event=<?php echo $eventId?>&user=<?php echo $userId?>" method="post">
+<form action="sendComment.php?event=<?php echo htmlspecialchars($eventId)?>&user=<?php echo htmlspecialchars($userId)?>" method="post" class="d-flex flex-column align-items-center card p-2 event-container">
   <label for="comment">Ajouter un commentaire</label>
-  <input type="text" name="comment">
-  <input type="submit" value="Envoyer">
+  <textarea name="comment" cols="50" rows="5"></textarea>
+  <input class="mt-2 btn btn-primary" type="submit" value="Envoyer">
 </form>
 
 <?php
@@ -55,13 +55,13 @@ $userName = $userManager->get($userId)->nom();
 foreach ($commentaires as $key => $value) {
   ?>
   <div class="event-container w-50 bg-light m-3 d-flex flex-column justify-content-center align-items-center shadow card border-0">
-    <p class="text-center "><?php echo $value->content() ?></p>
+    <p class="text-center "><?php echo htmlspecialchars($value->content()) ?></p> 
     <div class="w-50 d-flex flex-row justify-content-between">
-      <p class="text-center m-0">Auteur : <?php echo $manager->getUserName($value->userId()) ?></p>
+      <p class="text-center m-0">Auteur : <?php echo htmlspecialchars($manager->getUserName($value->userId())) ?></p>
       <?php
       if ($userId == $value->userId()) {
       ?>
-        <a href="deleteComment.php?comment=<?php echo $value->id()?>&event=<?php echo $eventId?>&user=<?php echo $userId?>">Supprimer mon commentaire</a>
+        <a href="deleteComment.php?comment=<?php echo htmlspecialchars($value->id())?>&event=<?php echo htmlspecialchars($eventId)?>&user=<?php echo htmlspecialchars($userId)?>">Supprimer mon commentaire</a>
       <?php
       }
       ?>

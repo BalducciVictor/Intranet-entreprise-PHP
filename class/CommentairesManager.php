@@ -72,6 +72,8 @@ class CommentairesManager
     $q->execute();
   }
 
+  // This function get the user name, based on the comment
+
   public function getUserName($userId){
     $q = $this->_db->query('SELECT nom FROM users INNER JOIN commentaires ON users.id = commentaires.userId WHERE commentaires.userId ='.$userId);
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
