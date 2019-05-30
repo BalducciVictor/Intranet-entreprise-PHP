@@ -16,11 +16,11 @@
 include 'header.php';
 
 function chargerClasse($class){
-  require $class . '.php';
+  require './class/' .$class . '.php';
 }
 
-
 spl_autoload_register('chargerClasse');
+
 
 // Loop over the comments list, with event parameter
 
@@ -63,7 +63,7 @@ foreach ($commentaires as $key => $value) {
       <?php
       if ($userId == $value->userId()) {
       ?>
-        <a href="#">Supprimer mon commentaire</a>
+        <a href="">Supprimer mon commentaire</a>
       <?php
       }
       ?>

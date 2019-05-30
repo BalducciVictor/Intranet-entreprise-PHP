@@ -67,18 +67,17 @@ INSERT INTO `events` (`id`, `title`, `texte`, `imageUrl`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL
+  `nom` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`) VALUES
-(1, 'Diarit', 'Salihaj'),
-(2, 'Victor', 'Balducci'),
-(3, 'Eden', 'Bergel');
+INSERT INTO `users` (`id`, `nom`) VALUES
+(1, 'Diarit'),
+(2, 'Victor'),
+(3, 'Eden');
 
 --
 -- Indexes for dumped tables

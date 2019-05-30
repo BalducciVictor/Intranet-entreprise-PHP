@@ -19,10 +19,6 @@
 
   include 'header.php';
 
-  
-
-
-
   ?>
 
 
@@ -37,9 +33,6 @@
 
     <input type="submit" value="Valider" class="btn btn-primary mb-2">
   </form>
-
-
-
 
 
 </body>

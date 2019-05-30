@@ -1,7 +1,7 @@
 <?php
 
 function chargerClasse($class){
-  require $class . '.php';
+  require 'class/' .$class . '.php';
 }
 
 spl_autoload_register('chargerClasse');
