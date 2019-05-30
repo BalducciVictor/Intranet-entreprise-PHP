@@ -40,8 +40,6 @@ $userManager = new UsersManager($db);
 $userId = $_GET['user'];
 $userName = $userManager->get($userId)->nom();
 
-echo $manager->getUserName($userId);
-
 ?>
 
 
@@ -62,7 +60,7 @@ foreach ($commentaires as $key => $value) {
       <?php
       if ($userId == $value->userId()) {
       ?>
-        <a href="">Supprimer mon commentaire</a>
+        <a href="deleteComment.php?comment=<?php echo $value->id()?>&event=<?php echo $eventId?>&user=<?php echo $userId?>">Supprimer mon commentaire</a>
       <?php
       }
       ?>
